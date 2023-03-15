@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} {% blocktrans %} Qidiruv natijalari {% endblocktrans %} {% endblock %}
+
+{% block content %}
+
+
+
+    <!-- Single News Start-->
+    <h2 class="text-info my-3"> {% blocktrans %} Qidiruv natijalari: {% endblocktrans %}</h2>
+
+    <div class="single-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row row-cols-1 row-cols-md-3">
+
+                        {% for search_new in all_news %}
+
+                          <div class="col mb-4">
+                            <div class="card h-100">
+                              <!--Card image-->
+                              <div class="view overlay">
+                                <img class="card-img-top" src="{{ search_new.header_images.url }}" class="card-img-top"
+                                     alt="{{ search_new.header_images.name }}" style="height: 144px; width: 215px">
+                              </div>
+                              <!--Card content-->
+                              <div class="card-body">
+                                <!--Title-->
+                                  <h5 class="card-title"><a href="{{ search_new.get_absolute_url }}">{{ search_new.name | slice:":50" }}...</a></h5>
+                                <!--Text-->
+                              </div>
+                                <p class="card-fuchsia mp-2"><i class="bi bi-calendar3 mx-2"></i>{{ search_new.date | date:"d.m.Y"}} </i> <i class="bi bi-alarm"></i> {{ search_new.date | date:"H:i"}}</p>
+                            </div>
+                          </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Single News End-->
+
+{% endblock content %}

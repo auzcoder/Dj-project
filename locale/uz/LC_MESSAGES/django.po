@@ -1,0 +1,186 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-11 20:06+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+#: MyNews/settings.py:134
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+#: MyNews/settings.py:135
+msgid "English"
+msgstr "English"
+
+#: MyNews/settings.py:136
+msgid "Russian"
+msgstr ""
+
+#: templates/base.html:8
+msgid " AuzBlog "
+msgstr ""
+
+#: templates/base.html:44
+msgid " Haqida "
+msgstr ""
+
+#: templates/base.html:45
+msgid " Maxfiylik "
+msgstr ""
+
+#: templates/base.html:46
+msgid " Shartlar "
+msgstr ""
+
+#: templates/base.html:47
+msgid " Bog'lanish "
+msgstr ""
+
+#: templates/base.html:97
+msgid " Bosh sahifa "
+msgstr ""
+
+#: templates/base.html:114
+msgid " Aloqa "
+msgstr ""
+
+#: templates/base.html:121
+msgid " Till "
+msgstr ""
+
+#: templates/base.html:149
+msgid " Manzil "
+msgstr ""
+
+#: templates/base.html:151
+msgid " O'zbekiston, Namangan sh, 326-uy "
+msgstr ""
+
+#: templates/base.html:167
+msgid " Foydali linklar "
+msgstr ""
+
+#: templates/base.html:180
+msgid " Tezkor linklar "
+msgstr ""
+
+#: templates/base.html:193
+msgid "Yangiliklar"
+msgstr ""
+
+#: templates/base.html:195
+msgid ""
+"\n"
+"                            Yangiliklar.uz web saytidagi yangiliklardan "
+"xabardor bo'lish uchun Obuna bo'ling! <br>\n"
+"                            Tezkor xabarlarni biz sizga pochtangiz orqali "
+"yetakazmiz!\n"
+"                            "
+msgstr ""
+
+#: templates/base.html:201
+msgid " Emailni kiriting... "
+msgstr ""
+
+#: templates/base.html:202
+msgid " Yuborish "
+msgstr ""
+
+#: templates/base.html:216
+msgid " Foydalanish shartlari "
+msgstr ""
+
+#: templates/base.html:217
+msgid "Maxfiylik siyosati "
+msgstr ""
+
+#: templates/base.html:218
+msgid "Cookie-fayllar "
+msgstr ""
+
+#: templates/base.html:219
+msgid "Sayt yo'l xaritasi "
+msgstr ""
+
+#: templates/base.html:220
+msgid "Reklama uchun "
+msgstr ""
+
+#: templates/base.html:221
+msgid "Biz bilan aloqa "
+msgstr ""
+
+#: templates/base.html:232
+msgid " Barcha huquqlar himoyalangan. "
+msgstr ""
+
+#: templates/base.html:236
+msgid " Yaratuvchi: "
+msgstr ""
+
+#: templates/contact.html:3
+msgid " Biz bilan aloqa "
+msgstr ""
+
+#: templates/contact.html:36
+msgid ""
+" Biz bilan bog'lanishni istaganingiz uchun tashakkur. Bizga yuborga "
+"xabaringiz biz uchun muxim. "
+msgstr ""
+
+#: templates/contact.html:38
+msgid " O'zbekiston, Namangan vil, Namangan sh, Boburshoh ko'chasi, 161-uy "
+msgstr ""
+
+#: templates/home.html:35
+msgid " O'zbekiston "
+msgstr ""
+
+#: templates/home.html:50
+msgid " Jahon "
+msgstr ""
+
+#: templates/home.html:74
+msgid " Iqtisodiyot "
+msgstr ""
+
+#: templates/home.html:89
+msgid " Jamiyat "
+msgstr ""
+
+#: templates/home.html:112
+msgid " Fan-texnika "
+msgstr ""
+
+#: templates/home.html:127
+msgid " Sport "
+msgstr ""
+
+#: templates/home.html:169
+msgid " Tavsiya etamiz "
+msgstr ""
+
+#: templates/news/news.html:47 templates/news/news_detail.html:29
+msgid " Eng yangi postlar "
+msgstr ""
+
+#: templates/news/search.html:5
+msgid " Qidiruv natijalari "
+msgstr ""
+
+#: templates/news/search.html:12
+msgid " Qidiruv natijalari: "
+msgstr ""

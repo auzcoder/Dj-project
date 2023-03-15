@@ -1,0 +1,104 @@
+{% extends 'admin/home.html' %}
+{% load static %}
+{% block title %} {{ news.name }} {% endblock title %}
+
+{% block content %}
+    <div class="main-container">
+		<div class="pd-ltr-20 xs-pd-20-10">
+			<div class="min-height-200px">
+				<div class="page-header">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="title">
+								<h4>Taxrirlash</h4>
+							</div>
+							<nav aria-label="breadcrumb" role="navigation">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="{% url 'admin_news_list' %}">Postlar</a></li>
+									<li class="breadcrumb-item" aria-current="page">Edit</li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{ new.slug.title }}</li>
+								</ol>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<!-- Default Basic Forms Start -->
+{#                {{ form.as_p }}#}
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4 mb-5">{{ new.name }}</h4><br>
+						</div>
+					</div>
+					<form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Sarlavha:</label>
+							<div class="col-sm-12 col-md-10">
+                                {{ form.name }}
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Ma'lumot:</label>
+							<div class="col-sm-12 col-md-10">
+                                {{ form.description }}
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Yangiliklar matni</label>
+							<div class="col-sm-12 col-md-10">
+                                {{ form.full_info }}
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Image:</label>
+							<div class="col-sm-12 col-md-10">
+                                <div class="custom-file">
+                                    {{ form.header_images }}
+{#                                    <input type="file" class="custom-file-input" name="header_images">#}
+{#                                    <label class="custom-file-label">Sarlavha rasmi</label>#}
+                                </div>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Kategoriya: </label>
+							<div class="col-sm-12 col-md-10">
+                                {{ form.category }}
+                                <select class="custom-select2 form-control" name="category" placeholder="Ma'lumot" multiple="multiple" style="width: 100%;">
+                                    <optgroup label="Kategoriyalarni tanlash">
+                                        <option value="AK">Alaska</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="CA">California</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="WA">Washington</option>
+                                    </optgroup>
+                                </select>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Status</label>
+                            <div class="col-sm-12 col-md-10">
+                                <select class="custom-select col-12" name="status">
+                                    <option value="PB">Faol</option>
+                                    <option value="DF">Nofaol</option>
+                                </select>
+                            </div>
+						</div>
+                        {{ form.as_p }}
+                        <div class="col-md-12 col-sm-12 mb-30">
+                            <div class="pd-20 height-100-p">
+                                <div class="btn-list d-flex">
+                                    <button type="submit" class="btn btn-success btn-lg btn-block">Yangilash</button>
+                                    <button type="reset" class="btn btn-secondary btn-lg btn-block">Tozalash</button>
+                                </div>
+                            </div>
+                        </div>
+					</form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}

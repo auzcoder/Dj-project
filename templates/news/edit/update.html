@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ news.name }} {% endblock title %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h3 class="display-4">Ma'lumotni yangilash</h3>
+        <hr class="my-4">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Bekor qilish</button>
+            <button type="submit" class="btn btn-danger">Saqlash</button>
+        </form>
+    </div>
+{% endblock content %}
