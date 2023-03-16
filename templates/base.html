@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}">
 
-    <link href="{% static 'assets/css/templatemo-pod-talk.css" rel="stylesheet' %}">
+    <link rel="stylesheet" href= "{% static 'assets/css/style.css' %}">
 
 </head>
 
@@ -38,7 +38,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand me-lg-5 me-0" href="index.html">
-                <img src="images/logo.svg" class="logo-image img-fluid" alt="templatemo pod talk">
+                <img src="{% static '' %}assets/images/logo.svg" class="logo-image img-fluid" alt="templatemo pod talk">
             </a>
 
             <form action="#" method="get" class="custom-form search-form flex-fill me-3" role="search">
@@ -101,13 +101,13 @@
 
                     <div class="owl-carousel owl-theme">
                         <div class="owl-carousel-info-wrap item">
-                            <img src="images/profile/smiling-business-woman-with-folded-hands-against-white-wall-toothy-smile-crossed-arms.jpg"
+                            <img src="{% static 'assets/images/profile/smiling-business-woman-with-folded-hands-against-white-wall-toothy-smile-crossed-arms.jpg' %}"
                                 class="owl-carousel-image img-fluid" alt="">
 
                             <div class="owl-carousel-info">
                                 <h4 class="mb-2">
                                     Candice
-                                    <img src="images/verified.png" class="owl-carousel-verified-image img-fluid"
+                                    <img src="{% static 'assets/images/verified.png' %}" class="owl-carousel-verified-image img-fluid"
                                         alt="">
                                 </h4>
 
@@ -119,13 +119,13 @@
                         </div>
 
                         <div class="owl-carousel-info-wrap item">
-                            <img src="images/profile/handsome-asian-man-listening-music-through-headphones.jpg"
+                            <img src="{% static '' %}assets/images/profile/handsome-asian-man-listening-music-through-headphones.jpg"
                                 class="owl-carousel-image img-fluid" alt="">
 
                             <div class="owl-carousel-info">
                                 <h4 class="mb-2">
                                     William
-                                    <img src="images/verified.png" class="owl-carousel-verified-image img-fluid"
+                                    <img src="{% static '' %}assets/images/verified.png" class="owl-carousel-verified-image img-fluid"
                                         alt="">
                                 </h4>
 
@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="owl-carousel-info-wrap item">
-                            <img src="images/profile/cute-smiling-woman-outdoor-portrait.jpg"
+                            <img src="{% static 'assets/images/profile/cute-smiling-woman-outdoor-portrait.jpg' %}"
                                 class="owl-carousel-image img-fluid" alt="">
 
                             <div class="owl-carousel-info">
@@ -166,7 +166,7 @@
                         </div>
 
                         <div class="owl-carousel-info-wrap item">
-                            <img src="images/profile/man-portrait.jpg" class="owl-carousel-image img-fluid" alt="">
+                            <img src="{% static 'assets/images/profile/man-portrait.jpg' %}" class="owl-carousel-image img-fluid" alt="">
 
                             <div class="owl-carousel-info">
                                 <h4 class="mb-2">Nick</h4>
@@ -177,13 +177,13 @@
                         </div>
 
                         <div class="owl-carousel-info-wrap item">
-                            <img src="images/profile/woman-posing-black-dress-medium-shot.jpg"
+                            <img src="{% static 'assets/images/profile/woman-posing-black-dress-medium-shot.jpg' %}"
                                 class="owl-carousel-image img-fluid" alt="">
 
                             <div class="owl-carousel-info">
                                 <h4 class="mb-2">
                                     Elsa
-                                    <img src="images/verified.png" class="owl-carousel-verified-image img-fluid"
+                                    <img src="{% static '' %}images/verified.png" class="owl-carousel-verified-image img-fluid"
                                         alt="">
                                 </h4>
 
@@ -192,17 +192,6 @@
 
                         </div>
 
-                        <div class="owl-carousel-info-wrap item">
-                            <img src="images/profile/smart-attractive-asian-glasses-male-standing-smile-with-freshness-joyful-casual-blue-shirt-portrait-white-background.jpg"
-                                class="owl-carousel-image img-fluid" alt="">
-
-                            <div class="owl-carousel-info">
-                                <h4 class="mb-2">Chan</h4>
-
-                                <span class="badge">Education</span>
-                            </div>
-
-                        </div>
                     </div>
                 </div>
 
@@ -225,7 +214,7 @@
                     <div class="custom-block custom-block-full">
                         <div class="custom-block-image-wrap">
                             <a href="detail-page.html">
-                                <img src="images/podcast/12577967_02.jpg" class="custom-block-image img-fluid"
+                                <img src="{% static 'images/podcast/12577967_02.jpg' %}" class="custom-block-image img-fluid"
                                     alt="">
                             </a>
                         </div>
@@ -270,7 +259,7 @@
                     <div class="custom-block custom-block-full">
                         <div class="custom-block-image-wrap">
                             <a href="detail-page.html">
-                                <img src="images/podcast/12577967_02.jpg" class="custom-block-image img-fluid"
+                                <img src="{% static 'images/podcast/12577967_02.jpg' %}" class="custom-block-image img-fluid"
                                     alt="">
                             </a>
                         </div>
@@ -315,7 +304,7 @@
                     <div class="custom-block custom-block-full">
                         <div class="custom-block-image-wrap">
                             <a href="detail-page.html">
-                                <img src="images/podcast/12577967_02.jpg" class="custom-block-image img-fluid"
+                                <img src="{% static 'images/podcast/12577967_02.jpg' %}" class="custom-block-image img-fluid"
                                     alt="">
                             </a>
                         </div>
@@ -602,7 +591,7 @@
 
                 <div class="col-lg-2 col-md-3 col-12">
                     <a class="navbar-brand" href="index.html">
-                        <img src="{% static 'v2/images/logo.svg' %}" class="logo-image img-fluid" alt="templatemo pod talk">
+                        <img src="{% static 'assets/images/logo.svg' %}" class="logo-image img-fluid" alt="Logo">
                     </a>
                 </div>
 
