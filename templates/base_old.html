@@ -1,0 +1,256 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <title>{% block title %}{% blocktrans %} AuzBlog {% endblocktrans %}{% endblock %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Yangiliklar.uz sayti uchun" name="keywords">
+    <meta content="Yangiliklar.uz sayti uchun" name="description">
+
+    <!-- Favicon -->
+    {#    <link href="{% static 'assets/img/favicon.ico' %}" rel="icon">#}
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'assets/lib/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- Top Bar Start -->
+<div class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tb-contact">
+                    <p><i class="fas fa-envelope"></i>info@yangiliklar.uz</p>
+                    <p><i class="fas fa-phone-alt"></i>+99890 696 00 10</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="tb-menu">
+                    <a href="">{% blocktrans %} Haqida {% endblocktrans %}</a>
+                    <a href="">{% blocktrans %} Maxfiylik {% endblocktrans %}</a>
+                    <a href="">{% blocktrans %} Shartlar {% endblocktrans %}</a>
+                    <a href="{% url 'contact' %}"> {% blocktrans %} Bog'lanish {% endblocktrans %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Top Bar Start -->
+
+<!-- Brand Start -->
+<div class="brand">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4">
+                <div class="b-logo">
+                    <a href="{% url 'home' %}">
+                        <img src="{% static 'assets/img/logo.png' %}" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4">
+                <div class="b-ads">
+                    <a href="http://namdu.uz" target="_blank">
+                        <img src="{% static 'assets/img/ads-1.jpg' %}" alt="Ads">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="b-search">
+                    <form method="get" action="{% url 'search_news' %}">
+                        <input type="search" name="q" class="form-control" placeholder="Qidiruv">
+                        <button><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Brand End -->
+
+<!-- Nav Bar Start -->
+<div class="nav-bar">
+    <div class="container">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="#" class="navbar-brand">MENU</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    <a href="{% url 'home' %}" class="nav-item nav-link {% if request.path == 'home' %} active {% endif %}"> {% blocktrans %} Bosh sahifa {% endblocktrans %}</a>
+
+
+                    {% for categorie in categories %}
+                        {% if categorie.sub_category %}
+                            <div class="nav-item dropdown">
+                                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">{{ categorie.name }}</a>
+                                    <div class="dropdown-menu">
+                                        {% for sub in categorie.sub_category %}
+                                            <a href="#" class="dropdown-item">{{ sub.name }}</a>
+                                        {% endfor %}
+                                    </div>
+                            </div>
+                        {% else %}
+                            <a href="{% url  'post_list' %}" class="nav-link ">{{ categorie.name }}</a>
+                        {% endif %}
+                    {% endfor %}
+                    <a href="{% url 'contact' %}" class="nav-item nav-link bigtext"> {% blocktrans %} Aloqa {% endblocktrans %}</a>
+
+
+                    <div class="nav-item dropdown">
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% get_available_languages as LANGUAGES %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">{% blocktrans %} Till {% endblocktrans %}</a>
+                        <div class="dropdown-menu">
+                            {% for language in languages %}
+                                <a href="/{{ language.code }}/" class="dropdown-item" >
+                                {{ language.name_local }} ({{ language.code }})</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Nav Bar End -->
+
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+<!-- Footer Start -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title"> {% blocktrans %} Manzil {% endblocktrans %}</h3>
+                    <div class="contact-info">
+                        <p><i class="fa fa-map-marker"></i> {% blocktrans %} O'zbekiston, Namangan sh, 326-uy {% endblocktrans %}</p>
+                        <p><i class="fa fa-envelope"></i>info@yangiliklar.uz</p>
+                        <p><i class="fa fa-phone"></i>+99890 696 00 10</p>
+                        <div class="social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title"> {% blocktrans %} Foydali linklar {% endblocktrans %}</h3>
+                    <ul>
+                        <li><a href="#">Yangiliklar.uz</a></li>
+                        <li><a href="#">Kun.uz</a></li>
+                        <li><a href="#">Daryo.uz</a></li>
+                        <li><a href="#">Xabar.uz</a></li>
+                        <li><a href="#">Namanganliklar.uz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title"> {% blocktrans %} Tezkor linklar {% endblocktrans %}</h3>
+                    <ul>
+                        <li><a href="#">O'zbekiston</a></li>
+                        <li><a href="#">Jahon</a></li>
+                        <li><a href="#">Fan-texnika</a></li>
+                        <li><a href="#">Biznes</a></li>
+                        <li><a href="#">Aloqa</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3 class="title">{% blocktrans %}Yangiliklar{% endblocktrans %}</h3>
+                    <div class="newsletter">
+                        <p>{% blocktrans %}
+                            Yangiliklar.uz web saytidagi yangiliklardan xabardor bo'lish uchun Obuna bo'ling! <br>
+                            Tezkor xabarlarni biz sizga pochtangiz orqali yetakazmiz!
+                            {% endblocktrans %}
+                        </p>
+                        <form>
+                            <input class="form-control" type="email" placeholder=" {% blocktrans %} Emailni kiriting... {% endblocktrans %}">
+                            <button class="btn" type="submit"> {% blocktrans %} Yuborish {% endblocktrans %}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<!-- Footer Menu Start -->
+<div class="footer-menu">
+    <div class="container">
+        <div class="f-menu">
+            <a href="">{% blocktrans %} Foydalanish shartlari {% endblocktrans %}</a>
+            <a href=""> {% blocktrans %}Maxfiylik siyosati {% endblocktrans %}</a>
+            <a href=""> {% blocktrans %}Cookie-fayllar {% endblocktrans %}</a>
+            <a href=""> {% blocktrans %}Sayt yo'l xaritasi {% endblocktrans %}</a>
+            <a href=""> {% blocktrans %}Reklama uchun {% endblocktrans %}</a>
+            <a href=""> {% blocktrans %}Biz bilan aloqa {% endblocktrans %}</a>
+        </div>
+    </div>
+</div>
+<!-- Footer Menu End -->
+
+<!-- Footer Bottom Start -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 copyright">
+                <p>Copyright &copy; <a href="https://t.me/auzcoder">Yangilik.uz</a>. {% blocktrans %} Barcha huquqlar himoyalangan. {% endblocktrans %}</p>
+            </div>
+
+            <div class="col-md-6 template-by">
+                <p> {% blocktrans %} Yaratuvchi: {% endblocktrans %}<a href="https://t.me/auzcoder">Abdulhafiz Davlatov</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer Bottom End -->
+
+<!-- Back to Top -->
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% block javascript %}
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'assets/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'assets/lib/slick/slick.min.js' %}"></script>
+    <!-- Template Javascript -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+{% endblock javascript %}
+</body>
+</html>
