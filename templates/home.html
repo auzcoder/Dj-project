@@ -16,97 +16,24 @@
                 </div>
 
                 <div class="owl-carousel owl-theme">
+
+                    {% for news in news_list %}
                     <div class="owl-carousel-info-wrap item">
-                        <img src="{% static 'assets/images/profile/smiling-business-woman-with-folded-hands-against-white-wall-toothy-smile-crossed-arms.jpg' %}"
-                            class="owl-carousel-image img-fluid" alt="">
+                        <img src="{{ news.header_images.url }}"
+                            class="owl-carousel-image img-fluid" alt="" style="height: 300px; width: 300px">
 
                         <div class="owl-carousel-info">
-                            <h4 class="mb-2">
-                                Candice
-                                <img src="{% static 'assets/images/verified.png' %}" class="owl-carousel-verified-image img-fluid"
-                                    alt="">
-                            </h4>
 
-                            <span class="badge">Storytelling</span>
+                            <h5 class="mb-2" style="font-size: 13px">
+                                <img src="{% static 'assets/images/verified.png' %}" style="width: 20px" class="owl-carousel-verified-image img-fluid" alt="Yangilik">
+                                {{ news.name | truncatewords:10 }}
 
-                            <span class="badge">Business</span>
+                            </h5>
+
                         </div>
 
                     </div>
-
-                    <div class="owl-carousel-info-wrap item">
-                        <img src="{% static '' %}assets/images/profile/handsome-asian-man-listening-music-through-headphones.jpg"
-                            class="owl-carousel-image img-fluid" alt="">
-
-                        <div class="owl-carousel-info">
-                            <h4 class="mb-2">
-                                William
-                                <img src="{% static '' %}assets/images/verified.png" class="owl-carousel-verified-image img-fluid"
-                                    alt="">
-                            </h4>
-
-                            <span class="badge">Creative</span>
-
-                            <span class="badge">Design</span>
-                        </div>
-
-                    </div>
-
-                    <div class="owl-carousel-info-wrap item">
-                        <img src="{% static 'assets/images/profile/cute-smiling-woman-outdoor-portrait.jpg' %}"
-                            class="owl-carousel-image img-fluid" alt="">
-
-                        <div class="owl-carousel-info">
-                            <h4 class="mb-2">Taylor</h4>
-
-                            <span class="badge">Modeling</span>
-
-                            <span class="badge">Fashion</span>
-                        </div>
-
-                        <div class="social-share">
-                            <ul class="social-icon">
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-facebook"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-pinterest"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="owl-carousel-info-wrap item">
-                        <img src="{% static 'assets/images/profile/man-portrait.jpg' %}" class="owl-carousel-image img-fluid" alt="">
-
-                        <div class="owl-carousel-info">
-                            <h4 class="mb-2">Nick</h4>
-
-                            <span class="badge">Acting</span>
-                        </div>
-
-                    </div>
-
-                    <div class="owl-carousel-info-wrap item">
-                        <img src="{% static 'assets/images/profile/woman-posing-black-dress-medium-shot.jpg' %}"
-                            class="owl-carousel-image img-fluid" alt="">
-
-                        <div class="owl-carousel-info">
-                            <h4 class="mb-2">
-                                Elsa
-                                <img src="{% static '' %}images/verified.png" class="owl-carousel-verified-image img-fluid"
-                                    alt="">
-                            </h4>
-
-                            <span class="badge">Influencer</span>
-                        </div>
-
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>

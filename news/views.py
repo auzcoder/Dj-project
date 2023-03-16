@@ -44,7 +44,7 @@ def HomePageView(request):
 
 
     categories = Category.objects.all()
-    news_list = New.published.all().order_by('-date')[:9] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
+    news_list = New.published.all().order_by('-date')[:5] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
     uzbekistan_news = New.published.all().filter(category__name='O\'zbekiston').order_by('-date')[0:3]
     jahon_news = New.published.all().filter(category__name='Jahon' or 'The world' or 'Mир').order_by('-date')[0:3]
     iqtisod_news = New.published.all().filter(category__name='Iqtisodiyot' or 'Эконом' or 'Economy').order_by('-date')[0:3]
