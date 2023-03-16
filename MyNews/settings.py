@@ -150,6 +150,7 @@ LOCALE_PATHS = BASE_DIR, 'locale',
 # STATICFILES_DIRS = ('/home/s240806/auzcoder.uz/django/static_files', )
 # MEDIA_URL = '/uploads/'
 # MEDIA_ROOT = '/home/s240806/auzcoder.uz/django/uploads'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -158,7 +159,6 @@ MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
