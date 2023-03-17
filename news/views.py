@@ -8,40 +8,11 @@ from django.urls import reverse_lazy
 from hitcount.utils import get_hitcount_model
 from hitcount.views import HitCountDetailView, HitCountMixin
 
-
 from .models import New, Category
 from django.views.generic import TemplateView
 from .forms import ContactForm
 
-
-
-
-import threading
-#
-# def add_hits(request):
-#     a = 1
-
-
-from hitcount.models import HitCountBase
-from hitcount.models import HitCount
 def HomePageView(request):
-    # print(request.LANGUAGE_CODE)
-    # thread = threading.Thread(target=add_hits, args=(request, ))
-    # thread.start()
-    #
-    # Post = [{"id":1, "title":"salom", 'hit':2}, {"id":2, "title":"salom", 'hit':2}]
-    # post = New.object.all()
-    # ready_posts = []
-    # for i in post:
-    #     # print(i.name, HitCountBase.objects.filter(object_pk=i.id).count())
-    #     # print(i.id, HitCount.objects.get_for_object(i.id))
-    #     # hit = HitCount.objects.get_for_object(i)
-    #     # hit_count_response = HitCountMixin.hit_count(request, hit)
-    #
-    #     # print(hit_count_response)
-    #     print(i.hit_count)
-
-
 
     categories = Category.objects.all()
     news_list = New.published.all().order_by('-date')[:5] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
