@@ -4,9 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template import context
 from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
-
-from hitcount.utils import get_hitcount_model
-from hitcount.views import HitCountDetailView, HitCountMixin
+from hitcount.views import HitCountDetailView
 
 from .models import New, Category
 from django.views.generic import TemplateView
@@ -17,24 +15,10 @@ def HomePageView(request):
     # categories = Category.objects.all()
     news_list = New.published.all().order_by('-date')[6:10] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
     news_list_home = New.published.all().order_by('-date')[:6]
-    # uzbekistan_news = New.published.all().filter(category__name='O\'zbekiston').order_by('-date')[0:3]
-    # jahon_news = New.published.all().filter(category__name='Jahon' or 'The world' or 'Mир').order_by('-date')[0:3]
-    # iqtisod_news = New.published.all().filter(category__name='Iqtisodiyot' or 'Эконом' or 'Economy').order_by('-date')[0:3]
-    # jamiyat_news = New.published.all().filter(category__name='Jamiyat').order_by('-date')[0:3]
-    # fantexnika_news = New.published.all().filter(category__name='Fan-texnika').order_by('-date')[0:3]
-    # sport_news = New.published.all().filter(category__name='Sport').order_by('-date')[0:3]
-
 
     context = {
         'news_list': news_list,
         "news_list_home": news_list_home,
-        # "categories": categories,
-        # 'uzbekistan_news': uzbekistan_news,
-        # 'jahon_news': jahon_news,
-        # 'iqtisod_news': iqtisod_news,
-        # 'jamiyat_news': jamiyat_news,
-        # 'fantexnika_news': fantexnika_news,
-        # 'sport_news': sport_news,
     }
     return render(request, 'home.html', context)
 
