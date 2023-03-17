@@ -317,7 +317,7 @@ main {
 
 .navbar-expand-lg .navbar-nav .nav-link {
   padding-right: 18px;
-  padding-left: 18px;
+  /* padding-left: 18px; */
 }
 
 .navbar-nav .nav-link.active, 
