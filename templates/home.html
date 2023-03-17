@@ -68,7 +68,7 @@
                         <div class="custom-block-info">
                             <h5 class="mb-2 my-2">
                                 <a href="{{ news.get_absolute_url }}">
-                                    {{ news.name | truncatewords:5 }}.order_by(-date)[:3]
+                                    {{ news.name | slice:50 }}...
                                 </a>
                             </h5>
 
