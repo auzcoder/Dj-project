@@ -25,7 +25,7 @@ class Category(models.Model):
 
     @property
     def news(self):
-        news = New.object.filter(category__id=self.id)
+        news = New.object.filter(category__id=self.id).order_by('-date')[:3]
         if news:
             return news
         return []

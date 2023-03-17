@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load i18n %}
+{% load hitcount_tags %}
 
 {% block content %}
 
@@ -69,6 +70,7 @@
                             <h5 class="mb-2 my-2">
                                 <a href="{{ news.get_absolute_url }}">
                                     {{ news.name | slice:50 }}...
+{#                                    slice:50#}
                                 </a>
                             </h5>
 
@@ -76,15 +78,15 @@
 
                             <div class="custom-block-bottom d-flex justify-content-between mt-3">
                                 <a href="#" class="bi-alarm me-1">
-                                    <span>100k</span>
+                                    <span>{{ news.date | date:"H:i" }}</span>
                                 </a>
 
                                 <a href="#" class="bi-calendar-event me-1">
-                                    <span>2.5k</span>
+                                    <span>{{ news.date | date:'d.m.Y' }}</span>
                                 </a>
 
                                 <a href="#" class="bi-eye-fill me-1">
-                                    <span>924k</span>
+                                    <span>{% get_hit_count for news %}</span>
                                 </a>
                             </div>
                         </div>
