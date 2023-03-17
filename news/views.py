@@ -15,7 +15,8 @@ from .forms import ContactForm
 def HomePageView(request):
 
     # categories = Category.objects.all()
-    news_list = New.published.all().order_by('-date')[:5] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
+    news_list = New.published.all().order_by('-date')[6:10] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
+    news_list_home = New.published.all().order_by('-date')[:6]
     # uzbekistan_news = New.published.all().filter(category__name='O\'zbekiston').order_by('-date')[0:3]
     # jahon_news = New.published.all().filter(category__name='Jahon' or 'The world' or 'Mир').order_by('-date')[0:3]
     # iqtisod_news = New.published.all().filter(category__name='Iqtisodiyot' or 'Эконом' or 'Economy').order_by('-date')[0:3]
@@ -26,6 +27,7 @@ def HomePageView(request):
 
     context = {
         'news_list': news_list,
+        "news_list_home": news_list_home,
         # "categories": categories,
         # 'uzbekistan_news': uzbekistan_news,
         # 'jahon_news': jahon_news,

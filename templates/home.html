@@ -18,22 +18,22 @@
 
                 <div class="owl-carousel owl-theme">
 
-                    {% for news in news_list %}
-                    <div class="owl-carousel-info-wrap item">
-                        <img src="{{ news.header_images.url }}"
-                            class="owl-carousel-image img-fluid" alt="" style="height: 300px; width: 300px">
+                    {% for news in news_list_home %}
+                        <div class="owl-carousel-info-wrap item">
+                            <img src="{{ news.header_images.url }}"
+                                class="owl-carousel-image img-fluid" alt="" style="height: 300px; width: 300px">
 
-                        <div class="owl-carousel-info">
+                            <div class="owl-carousel-info">
 
-                            <h5 class="mb-2" style="font-size: 13px">
-                                <img src="{% static 'assets/images/verified.png' %}" style="width: 20px" class="owl-carousel-verified-image img-fluid" alt="Yangilik">
-                                {{ news.name | truncatewords:10 }}
+                                <h5 class="mb-2" style="font-size: 13px">
+                                    <img src="{% static 'assets/images/verified.png' %}" style="width: 20px" class="owl-carousel-verified-image img-fluid" alt="Yangilik">
+                                    {{ news.name | truncatewords:10 }}
 
-                            </h5>
+                                </h5>
+
+                            </div>
 
                         </div>
-
-                    </div>
                     {% endfor %}
 
                 </div>
@@ -112,6 +112,7 @@
                 </div>
             </div>
 
+            {% for news in news_list %}
             <div class="col-lg-6 col-12 mb-5 mb-lg-0">
                 <div class="custom-block d-flex mb-2">
                     <div class="">
@@ -126,26 +127,26 @@
 
                     <div class="custom-block-info">
 
-                        <h5 class="mb-2">
+                        <h6 class="mb-2">
                             <a href="detail-page.html">
-                                Yangiliklning name yani title ushbu joyda joylashadi va shu yerda aks etadi!
+                                {{ news.name | truncatewords:8 }}
                             </a>
-                        </h5>
+                        </h6>
 
-                        <p class="mb-0">Bu yangilik haqida qisqacha ma'lumotlar joyi hissoblanadi bu qismda faqat full_info qismidan biroz oylashadi</p>
+                        <p class="mb-0"></p>
 
                         <div class="custom-block-bottom d-flex justify-content-between mt-3">
 
                             <a href="#" class="bi-alarm me-1">
-                                <span>100k</span>
+                                <span>{{ news.date | date:'H:i' }}</span>
                             </a>
 
                             <a href="#" class="bi-calendar-event me-1">
-                                <span>2.5k</span>
+                                <span>{{ news.date | date:'d.m.Y' }}</span>
                             </a>
 
                             <a href="#" class="bi-eye-fill me-1">
-                                <span>924k</span>
+                                <span>{% get_hit_count for news %}</span>
                             </a>
 
 
@@ -153,6 +154,7 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
         </div>
     </div>
