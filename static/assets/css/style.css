@@ -603,7 +603,7 @@ main {
   border-radius: var(--border-radius-medium);
   position: relative;
   overflow: hidden;
-  padding: 10px;
+  padding: 5px;
   transition: all 0.3s ease;
 }
 
