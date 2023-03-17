@@ -1,19 +1,16 @@
 from django.db.models import Q
-from django.http import request, HttpResponse
-from django.shortcuts import render, get_object_or_404
-from django.template import context
-from django.views.generic import ListView, DetailView, UpdateView, CreateView, DeleteView
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView
 from django.urls import reverse_lazy
 from hitcount.views import HitCountDetailView
-
 from .models import New, Category
 from django.views.generic import TemplateView
 from .forms import ContactForm
 
 def HomePageView(request):
-
     # categories = Category.objects.all()
-    news_list = New.published.all().order_by('-date')[6:10] # [:9] bu listdan kelayotgan xabarlar sonini cheklash uchun hozir bu yerdan jami bo'lib 9 dona yangilik keladi
+    news_list = New.published.all().order_by('-date')[6:10]
     news_list_home = New.published.all().order_by('-date')[:6]
 
     context = {
