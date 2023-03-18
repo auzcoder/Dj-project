@@ -263,6 +263,15 @@ main {
   position: relative;
 }
 
+.site-header-img {
+  background-image: url('../images/templatemo-wave-header.jpg'), linear-gradient(#348CD2, #FFFFFF);;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 300px;
+  position: relative;
+}
+
 .site-header h2 {
   color: var(--white-color);
 }
