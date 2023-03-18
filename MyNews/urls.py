@@ -3,21 +3,21 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.views.i18n import set_language
+# from django.views.i18n import
 
-from news.views import HomePageView, ContactPageView, NewsCreateView, NewsSearchView
+from news.views import HomePageView, ContactPageView, NewsCreateView, NewsSearchView, set_language
 
 urlpatterns = [
     path('auth/', include('accounts.urls')),
     path('admin/', admin.site.urls, name='admin'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('i18n/', include('django.conf.urls.i18n')),
+    # path('i18n/', include('django.conf.urls.i18n')),
 
 ]
 
 # Asosiy ilova uchun tilni o'zgartirishni yordam beradigan url
 urlpatterns += [
-    path('set_language/', set_language, name='set_language'),
+    path('set_language/<str:language_code>/', set_language, name='set_language'),
 ]
 
 urlpatterns += i18n_patterns(

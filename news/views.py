@@ -1,8 +1,9 @@
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.utils.translation import activate
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from hitcount.views import HitCountDetailView
 from .models import New, Category
 from django.views.generic import TemplateView
@@ -105,3 +106,12 @@ class CategoryDetailView(DetailView):
 
     def get_queryset(self):
         return New.published.filter(category_id=self.kwargs['pk'])
+
+
+def set_language(request):
+    language_code = request.GET.get('language')
+    if language_code:
+        response = redirect(reverse('home'))
+        response.set_cookie('django_language', language_code)
+        return response
+    return redirect(reverse('home'))

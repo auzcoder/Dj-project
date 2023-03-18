@@ -73,19 +73,24 @@
                         <a class="nav-link" href="{% url 'contact' %}">Bog'lanish</a>
                     </li>
 
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                    {% get_language_info for LANGUAGE_CODE as language %}
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">Language</a>
+                           data-bs-toggle="dropdown" aria-expanded="false">{{ language.name_local }}</a>
 
                         <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                            {% get_current_language as LANGUAGE_CODE %}
-                            {% get_available_languages as LANGUAGES %}
-                            {% get_language_info_list for LANGUAGES as languages %}
+
                             {% for language in languages %}
-                            <li><a class="dropdown-item {% if language.code == LANGUAGE_CODE %} active{% endif %}"
+                            <li><a class="dropdown-item {% if language.code == LANGUAGE_CODE %} active {% endif %}"
                                    href="{% url 'set_language' %}?language={{ language.code }}">{{ language.name_local }}</a></li>
                             {% endfor %}
+
                         </ul>
+
                     </li>
 
                 </ul>
