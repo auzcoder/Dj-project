@@ -63,7 +63,7 @@
                         {% else %}
 
                             <li class="nav-item">
-                                <a class="nav-link" href="">{{ categorie.name }}</a>
+                                <a class="nav-link" href="{% url 'post_list' %}">{{ categorie.name }}</a>
                             </li>
 
                         {% endif %}
