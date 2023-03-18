@@ -69,8 +69,8 @@
                         </div>
 
                         <div class="custom-block-info">
-                            <h5 class="mb-2 my-2">
-                                <a href="{{ news.get_absolute_url }}" style="font-size: 15px;">
+                            <h5 class="mb-2 my-2 font-size-news">
+                                <a href="{{ news.get_absolute_url }}">
                                     {{ news.name | truncatechars:90 }}
                                 </a>
                             </h5>
@@ -78,17 +78,17 @@
 
 
                             <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                <a href="#" class="bi-alarm me-1">
+                                <i class="bi-alarm me-1 icon-icon">
                                     <span>{{ news.date | date:"H:i" }}</span>
-                                </a>
+                                </i>
 
-                                <a href="#" class="bi-calendar-event me-1">
+                                <i class="bi-calendar-event me-1 icon-icon">
                                     <span>{{ news.date | date:'d.m.Y' }}</span>
-                                </a>
+                                </i>
 
-                                <a href="#" class="bi-eye-fill me-1">
+                                <i class="bi-eye-fill me-1 icon-icon">
                                     <span>{% get_hit_count for news %}</span>
-                                </a>
+                                </i>
                             </div>
                         </div>
 
@@ -120,17 +120,17 @@
                         <div class="custom-block-icon-wrap">
                             <div class="section-overlay"></div>
                             <a href="detail-page.html" class="custom-block-image-wrap">
-                                <!-- <img src="images/topics/repairman-doing-air-conditioner-service.jpg"
-                                    class="custom-block-image img-fluid" alt=""> -->
+                                <img src="{{ news.header_images.url }}"
+                                    class="custom-block-image img-fluid" alt="">
                             </a>
                         </div>
                     </div>
 
                     <div class="custom-block-info">
 
-                        <h6 class="mb-2">
+                        <h6 class="mb-2 font-size-news">
                             <a href="detail-page.html">
-                                {{ news.name | truncatechars:50 }}
+                                {{ news.name | truncatechars:80 }}
                             </a>
                         </h6>
 
@@ -138,17 +138,17 @@
 
                         <div class="custom-block-bottom d-flex justify-content-between mt-3">
 
-                            <a href="#" class="bi-alarm me-1">
+                            <i class="bi-alarm me-1 icon-icon">
                                 <span>{{ news.date | date:'H:i' }}</span>
-                            </a>
+                            </i>
 
-                            <a href="#" class="bi-calendar-event me-1">
+                            <i class="bi-calendar-event me-1 icon-icon">
                                 <span>{{ news.date | date:'d.m.Y' }}</span>
-                            </a>
+                            </i>
 
-                            <a href="#" class="bi-eye-fill me-1">
+                            <i class="bi-eye-fill me-1 icon-icon">
                                 <span>{% get_hit_count for news %}</span>
-                            </a>
+                            </i>
 
 
                         </div>

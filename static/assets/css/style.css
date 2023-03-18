@@ -120,7 +120,7 @@ button {
 
 a {
   display: inline-block;
-  color: var(--primary-color);
+  color: var(--dark-color);
   text-decoration: none;
 }
 
@@ -138,6 +138,11 @@ strong {
   color: var(--white-color);
 }
 
+.icon-icon {
+  color: var(--primary-color);
+  font-style: normal;
+  font-weight: 500;
+}
 
 /*---------------------------------------
   SECTION               
@@ -618,6 +623,10 @@ main {
   display: block;
   padding: 10px 20px;
   padding-bottom: 0;
+}
+
+.font-size-news {
+font-size: 15px;
 }
 
 .custom-block-image-wrap {
