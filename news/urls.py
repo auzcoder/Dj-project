@@ -2,7 +2,7 @@ from django.urls import path, include
 from django.views.i18n import set_language
 
 from .views import PostListView, PostDetailView, NewsUpdateView, NewsDeleteView, NewsSearchView, CategoryListView, \
-    CategoryDetailView
+    CategoryPostListView
 
 
 # urls
@@ -13,6 +13,5 @@ urlpatterns = [
     path('delete/<slug:slug>/', NewsDeleteView.as_view(), name='post_delete'),
     # path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
     path('category/', CategoryListView.as_view(), name='category_list'),
-    path('category/<int:pk>/', CategoryDetailView.as_view(), name='category_detail'),
-    # path('set_language/', set_language, name='set_language')
+    path('category/<int:pk>/', CategoryPostListView.as_view(), name='category_post_list'),
 ]

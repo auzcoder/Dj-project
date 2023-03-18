@@ -1,7 +1,10 @@
+from unicodedata import category
+
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.translation import activate
+from django.views import generic
 from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView
 from django.urls import reverse_lazy, reverse
 from hitcount.views import HitCountDetailView
@@ -99,13 +102,20 @@ class NewsSearchView(ListView):
 
 
 # Category uchun views
-class CategoryDetailView(DetailView):
-    model = Category
+class CategoryPostListView(generic.ListView):
     template_name = 'news/news.html'
-    context_object_name = 'category'
+    context_object_name = 'category_news'
 
     def get_queryset(self):
-        return New.published.filter(category_id=self.kwargs['pk'])
+        category = get_object_or_404(Category, pk=self.kwargs['pk'])
+        return Category.objects.filter(category=category)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = get_object_or_404(Category, pk=self.kwargs['pk'])
+        context['category'] = category
+        return context
+print()
 
 
 def set_language(request):

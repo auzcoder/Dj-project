@@ -870,14 +870,14 @@ font-size: 15px;
   PAGINATION               
 -----------------------------------------*/
 .pagination {
-  border: 1px solid #dee2e6;
-  border-radius: var(--border-radius-large);
+  /* border: 1px solid #dee2e6;
+  border-radius: var(--border-radius-large); */
   padding: 20px;
 }
 
 .page-link {
   border: 0;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-large);
   color: var(--p-color);
   font-family: var(--title-font-family);
   margin: 0 5px;
