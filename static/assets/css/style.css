@@ -629,6 +629,10 @@ main {
 font-size: 15px;
 }
 
+.detail-color {
+  color: var(--white-color);
+}
+
 .custom-block-image-wrap {
   position: relative;
   display: block;
