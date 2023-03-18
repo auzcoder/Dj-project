@@ -19,21 +19,23 @@
                 <div class="owl-carousel owl-theme">
 
                     {% for news in news_list_home %}
-                        <div class="owl-carousel-info-wrap item">
-                            <img src="{{ news.header_images.url }}"
-                                class="owl-carousel-image img-fluid" alt="" style="height: 300px; width: 300px">
+                        <a href="{{ news.get_absolute_url }}">
+                            <div class="owl-carousel-info-wrap item">
+                                <img src="{{ news.header_images.url }}"
+                                    class="owl-carousel-image img-fluid" alt="" style="height: 300px; width: 300px">
 
-                            <div class="owl-carousel-info">
+                                <div class="owl-carousel-info">
 
-                                <h5 class="mb-2" style="font-size: 13px">
-                                    <img src="{% static 'assets/images/verified.png' %}" style="width: 20px" class="owl-carousel-verified-image img-fluid" alt="Yangilik">
-                                    {{ news.name | truncatewords:10 }}
+                                    <h5 class="mb-2"  style="font-size: 13px; max-height: 200px">
 
-                                </h5>
+                                        <img src="{% static 'assets/images/verified.png' %}" style="width: 20px" class="owl-carousel-verified-image img-fluid" alt="Yangilik">
+                                            {{ news.name | truncatechars:50 }}
+                                    </h5>
+
+                                </div>
 
                             </div>
-
-                        </div>
+                        </a>
                     {% endfor %}
 
                 </div>
@@ -68,8 +70,8 @@
 
                         <div class="custom-block-info">
                             <h5 class="mb-2 my-2">
-                                <a href="{{ news.get_absolute_url }}">
-                                    {{ news.name | slice:50 }}...
+                                <a href="{{ news.get_absolute_url }}" style="font-size: 15px;">
+                                    {{ news.name | truncatechars:90 }}
                                 </a>
                             </h5>
 
@@ -128,7 +130,7 @@
 
                         <h6 class="mb-2">
                             <a href="detail-page.html">
-                                {{ news.name | truncatewords:8 }}
+                                {{ news.name | truncatechars:50 }}
                             </a>
                         </h6>
 

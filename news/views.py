@@ -1,7 +1,7 @@
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.generic import ListView, UpdateView, CreateView, DeleteView
+from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, UpdateView, CreateView, DeleteView, DetailView
 from django.urls import reverse_lazy
 from hitcount.views import HitCountDetailView
 from .models import New, Category
@@ -95,4 +95,13 @@ class NewsSearchView(ListView):
         return New.object.filter(
             Q(name__icontains=query) | Q(full_info__icontains=query)
         )
-    
+
+
+# Category uchun views
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'news/news.html'
+    context_object_name = 'category'
+
+    def get_queryset(self):
+        return New.published.filter(category_id=self.kwargs['pk'])
