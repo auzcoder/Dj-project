@@ -44,19 +44,18 @@
                         <div class="custom-block-info">
                             <div class="custom-block-top d-flex mb-1">
                                 <small class="me-4">
-                                    <a href="#">
-                                        <i class="bi-calendar"></i>
-                                        {{ news.date | date:'d.m.Y' }}
-                                    </a>
+                                    <i class="bi-calendar icon-icon"></i>
+                                    {{ news.date | date:'d.m.Y' }}
                                 </small>
 
                                 <small>
-                                    <i class="bi-clock-fill custom-icon"></i>
-                                    {{ news.date | date:'H:i' }}
+                                    <i class="bi-clock-fill icon-icon"></i>
+                                     {{ news.date | date:'H:i' }}
                                 </small>
 
-                                <small class="ms-auto"><i class="bi-sort-numeric-down custom-icon"></i> Post ID:
-                                    <span class="badge">{{ news.pk }}</span></small>
+                                <small class="ms-auto">
+                                    <span class="badge">{% get_hit_count for news %}</span>
+                                </small>
                             </div>
 
                             <p class="">{{ news.full_info | safe }}</p>
