@@ -103,7 +103,7 @@
 </section>
 
 
-<section class="latest-podcast-section section-padding pb-0" id="section_2">
+<section class="latest-podcast-section section-padding pb-0 mt-5 mb-3" id="section_2">
     <div class="container">
         <div class="row justify-content-center">
 
@@ -138,15 +138,15 @@
 
                         <div class="custom-block-bottom d-flex justify-content-between mt-3" style="position: absolute; bottom:0;">
 
-                            <i class="bi-alarm me-1 icon-icon">
+                            <i class="bi-alarm me-1 icon-icon mx-3 ">
                                 <span>{{ news.date | date:'H:i' }}</span>
                             </i>
 
-                            <i class="bi-calendar-event me-1 icon-icon">
+                            <i class="bi-calendar-event me-1 icon-icon mx-5">
                                 <span>{{ news.date | date:'d.m.Y' }}</span>
                             </i>
 
-                            <i class="bi-eye-fill me-1 icon-icon">
+                            <i class="bi-eye-fill me-1 icon-icon mx-5">
                                 <span>{% get_hit_count for news %}</span>
                             </i>
 

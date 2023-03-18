@@ -13,5 +13,4 @@ urlpatterns = [
     path('delete/<slug:slug>/', NewsDeleteView.as_view(), name='post_delete'),
     # path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
     path('category/', CategoryListView.as_view(), name='category_list'),
-    path('category/<int:pk>/', CategoryPostListView.as_view(), name='category_post_list'),
 ]
