@@ -108,7 +108,7 @@ class CategoryPostListView(generic.ListView):
 
     def get_queryset(self):
         category = get_object_or_404(Category, pk=self.kwargs['pk'])
-        return Category.objects.filter(category=category)
+        return Category.objects.filter(category=category).order_by('-pub_date')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
