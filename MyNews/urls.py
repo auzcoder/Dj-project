@@ -3,9 +3,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.views.i18n import set_language
 # from django.views.i18n import
 
-from news.views import HomePageView, ContactPageView, NewsCreateView, NewsSearchView, set_language
+from news.views import HomePageView, ContactPageView, NewsCreateView, NewsSearchView
 
 urlpatterns = [
     path('auth/', include('accounts.urls')),
@@ -16,16 +17,16 @@ urlpatterns = [
 ]
 
 # Asosiy ilova uchun tilni o'zgartirishni yordam beradigan url
-urlpatterns += [
-    path('set_language/', set_language, name='set_language'),
-]
+
 
 urlpatterns += i18n_patterns(
     path('', HomePageView, name='home'),
+    path('set_language/', set_language, name='set_language'),
     path('news/', include('news.urls')),
     path('contact/', ContactPageView.as_view(), name='contact'),
     path('create/', NewsCreateView.as_view(), name='create_news'),
     path('search/', NewsSearchView.as_view(), name='search_news'),
+    # prefix_default_language=False,
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
