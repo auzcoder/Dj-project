@@ -17,7 +17,7 @@ urlpatterns = [
 
 # Asosiy ilova uchun tilni o'zgartirishni yordam beradigan url
 urlpatterns += [
-    path('set_language/<str:language_code>/', set_language, name='set_language'),
+    path('set_language/', set_language, name='set_language'),
 ]
 
 urlpatterns += i18n_patterns(
