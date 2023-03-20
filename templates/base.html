@@ -48,7 +48,19 @@
                         <a class="nav-link active" href="{% url 'home' %}">Bosh sahifa</a>
                     </li>
 
-{#                    /
+{#                    {% for categorie in categories %}#}
+{#                        {% if categorie.sub_category %}#}
+{#                            <li class="nav-item dropdown">#}
+{#                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button"#}
+{#                                    data-bs-toggle="dropdown" aria-expanded="false">{{ categorie.name }}</a>#}
+{##}
+{#                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">#}
+{#                                    {% for sub in categorie.sub_category %}#}
+{#                                    <li><a class="dropdown-item" href="listing-page.html">{{ sub.name }}</a></li>#}
+{#                                    {% endfor %}#}
+{#                                </ul>#}
+{#                            </li>#}
+{#                        {% else %}#}
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'post_list'%}">{{ categorie.name }}</a>
