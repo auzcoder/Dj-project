@@ -53,7 +53,7 @@ class PostListView(ListView):
     queryset = New.object.filter(status='PB')
     template_name = 'news/news.html'
     context_object_name = 'news'
-    paginate_by = 6
+    paginate_by = 600
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
