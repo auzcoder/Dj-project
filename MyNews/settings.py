@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-vyd0*0@ex&_e&tuii)=gds)1w*3f$+6-&66s13_vi9)+^p2$1n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ['all']
 ALLOWED_HOSTS = ['new.auzcoder.uz', 'www.new.auzcoder.uz', '127.0.0.1', 'localhost', '192.168.14.38']
 
 # Application definition
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
     #tashqi app
     'ckeditor',
     'ckeditor_uploader',
-    'hitcount', # hitcount ko'rishlar sonini ip ddress bo'yicha aniqlash uchun
+    'hitcount',  #hitcount_ko'rishlar_sonini_ip_ddress_boyicha_aniqlash_uchun
     'modeltranslation',
     'whitenoise.runserver_nostatic',
 ]
