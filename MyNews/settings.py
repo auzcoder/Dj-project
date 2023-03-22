@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-vyd0*0@ex&_e&tuii)=gds)1w*3f$+6-&66s13_vi9)+^p2$1n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['auzcoder.uz', 'www.auzcoder.uz', '127.0.0.1', 'localhost', '192.168.14.38']
+# ALLOWED_HOSTS = ['all']
+ALLOWED_HOSTS = ['new.auzcoder.uz', 'www.new.auzcoder.uz', '127.0.0.1', 'localhost', '192.168.14.38']
 
 # Application definition
 
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
     #tashqi app
     'ckeditor',
     'ckeditor_uploader',
-    'hitcount', # hitcount ko'rishlar sonini ip ddress bo'yicha aniqlash uchun
+    'hitcount',  #hitcount_ko'rishlar_sonini_ip_ddress_boyicha_aniqlash_uchun
     'modeltranslation',
     'whitenoise.runserver_nostatic',
 ]
@@ -145,18 +146,18 @@ LOCALE_PATHS = BASE_DIR, 'locale',
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# STATIC_URL = 'static/'
-# STATIC_ROOT = '/home/s240806/auzcoder.uz/django/static'
-# STATICFILES_DIRS = ('/home/s240806/auzcoder.uz/django/static_files', )
-# MEDIA_URL = '/uploads/'
-# MEDIA_ROOT = '/home/s240806/auzcoder.uz/django/uploads'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = '/home/s240806/auzcoder.uz/django/static'
+STATICFILES_DIRS = ('/home/s240806/auzcoder.uz/django/static_files', )
 MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = '/home/s240806/auzcoder.uz/django/uploads'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# STATIC_URL = 'static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+# MEDIA_URL = '/uploads/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 
 
 
