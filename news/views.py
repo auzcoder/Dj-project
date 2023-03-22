@@ -50,14 +50,13 @@ class ContactPageView(TemplateView):
 
 # Create your views here. Post listlar uchun
 class PostListView(ListView):
-    queryset = New.object.filter(status='PB', )
+    queryset = New.object.filter(status='PB')
     template_name = 'news/news.html'
     context_object_name = 'news'
     paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Add pagination object to context
         paginator = Paginator(context['news'], self.paginate_by)
         page = self.request.GET.get('page')
         context['page_obj'] = paginator.get_page(page)
