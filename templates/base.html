@@ -87,7 +87,7 @@
                             {% for language in languages %}
                             <li><a class="dropdown-item {% if language.code == LANGUAGE_CODE %} active {% endif %}"
                                    href="/{{ language.code }}/">{{ language.name_local }}</a></li>
-{#                                {% url 'set_language' %}?language=#}
+                                {% url 'set_language' %}?language=
                             {% endfor %}
 
                         </ul>
