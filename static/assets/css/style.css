@@ -22,6 +22,7 @@ https://templatemo.com/tm-584-pod-talk
   --p-color:                      #717275;
   --border-color:                 #7fffd4;
   --link-hover-color:             #0066CC;
+  --auzcoder-color:               #8F8F8F;
 
   --body-font-family:             'Montserrat', sans-serif;
   --title-font-family:            'Sono', sans-serif;
@@ -139,7 +140,7 @@ strong {
 }
 
 .icon-icon {
-  color: var(--primary-color);
+  color: var(--auzcoder-color);
   font-style: normal;
   font-weight: 500;
 }
@@ -744,7 +745,7 @@ font-size: 15px;
 }
 
 .custom-block-full:hover {
-  border-color: var(--primary-color);
+  border-color: var(--white-color);
 }
 
 .custom-block-full .custom-block-info {
