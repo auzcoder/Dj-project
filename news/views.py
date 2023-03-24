@@ -11,7 +11,7 @@ from hitcount.views import HitCountDetailView
 from .models import New, Category
 from django.views.generic import TemplateView
 from .forms import ContactForm
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 def HomePageView(request):
     # categories = Category.objects.all()
@@ -47,7 +47,7 @@ class ContactPageView(TemplateView):
 
         return render(request, 'contact.html', context)
 
-
+from django.shortcuts import get_object_or_404
 # Create your views here. Post listlar uchun
 class PostListView(ListView):
     queryset = New.object.filter(status='PB')
@@ -56,10 +56,18 @@ class PostListView(ListView):
     paginate_by = 3
 
     def get_context_data(self, **kwargs):
+        print(self.request.GET)
+        # context = super().get_context_data(**kwargs)
         context = super().get_context_data(**kwargs)
-        paginator = Paginator(context['news'], self.paginate_by)
-        page = self.request.GET.get('page')
+        category = get_object_or_404(Category, id=self.request.GET.get('filter', 0))
+        news = New.object.filter(status='PB', category__in=[category.id])
+        paginator = Paginator(news, self.paginate_by)
+        page = self.request.GET.get('page', 1)
         context['page_obj'] = paginator.get_page(page)
+        # context.update({
+        #     'cat': Model.objects.all(),
+        # })
+        print(context['page_obj'])
         return context
 
 
