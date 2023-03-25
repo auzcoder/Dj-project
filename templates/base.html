@@ -73,8 +73,9 @@
                     {% endfor %}
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Bog'lanish {{ request.resolver_match.url_name }}
-                        {% url request.resolver_match.url_name %}
+                        <a class="nav-link" href="{% url 'contact' %}">Bog'lanish
+{#                            {{ request.resolver_match.url_name }}#}
+{#                        {% url request.resolver_match.url_name %}#}
                         </a>
                     </li>
 
