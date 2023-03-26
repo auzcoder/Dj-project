@@ -56,7 +56,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
                                     {% for sub in categorie.sub_category %}
-                                    <li><a class="dropdown-item" href="listing-page.html">{{ sub.name }}</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'home' %}">{{ sub.name }}</a></li>
                                     {% endfor %}
                                 </ul>
                             </li>
