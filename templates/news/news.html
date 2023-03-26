@@ -12,7 +12,7 @@
 
                 <div class="col-lg-12 col-12 text-center">
 
-                    <h2 class="mb-0 text-white">Kategoriya nomi shu yerda bo'ladi {{ categorie.name }} {{ request.GET.cat_id }}</h2>
+                    <h2 class="mb-0 text-white">Kategoriya nomi shu yerda bo'ladi</h2>
                 </div>
 
             </div>
@@ -62,32 +62,10 @@
                 </div>
                 {% endfor %}
 
-{#                <div class="col-lg-4 col-12 mx-auto mb-3">#}
-{#                    <nav aria-label="Page navigation example">#}
-{#                        <ul class="pagination pagination-lg justify-content-center mt-5">#}
-{#                            <li class="page-item">#}
-{#                                <a class="page-link" href="#" aria-label="Previous">#}
-{#                                    <span aria-hidden="true">&laquo;</span>#}
-{#                                </a>#}
-{#                            </li>#}
-{##}
-{#                            <li class="page-item active"><a class="page-link" href="#">1</a></li>#}
-{##}
-{#                            <li class="page-item"><a class="page-link" href="#">2</a></li>#}
-{##}
-{#                            <li class="page-item"><a class="page-link" href="#">3</a></li>#}
-{##}
-{#                            <li class="page-item">#}
-{#                                <a class="page-link" href="#" aria-label="Next">#}
-{#                                    <span aria-hidden="true">&raquo;</span>#}
-{#                                </a>#}
-{#                            </li>#}
-{#                        </ul>#}
-{#                    </nav>#}
-{#                </div>#}
-
-
-                <div class="col-lg-4 col-12 mx-auto mb-3">
+            </div>
+        </div>
+    </section>
+    <div class="col-lg-4 col-12 mx-auto mb-3">
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-lg justify-content-center mt-5">
                             {% if is_paginated %}
@@ -126,13 +104,6 @@
                         </ul>
                     </nav>
                 </div>
-
-
-
-
-            </div>
-        </div>
-    </section>
 
 
 {% endblock content %}
