@@ -25,21 +25,21 @@
 
                     <div class="col-lg-5 col-12 pe-lg-5">
                         <div class="contact-info">
-                            <h3 class="mb-4">We love to help you. Get in touch</h3>
+                            <h3 class="mb-4">Bizning manzil:</h3>
 
                             <p class="d-flex border-bottom pb-3 mb-4">
-                                <strong class="d-inline me-4">Phone:</strong>
-                                <span>010-020-0340</span>
+                                <strong class="d-inline me-4">Manzil:</strong>
+                                <span>1355 Market Street, Downtown San Francisco, California</span>
                             </p>
 
                             <p class="d-flex border-bottom pb-3 mb-4">
                                 <strong class="d-inline me-4">Email:</strong>
-                                <a href="#">inquiry@pod.co</a>
+                                <a href="#">auz.offical@gmail.com</a>
                             </p>
 
                             <p class="d-flex">
-                                <strong class="d-inline me-4">Location:</strong>
-                                <span>1355 Market Street, Downtown San Francisco, California</span>
+                                <strong class="d-inline me-4">Tel:</strong>
+                                <span>+99890 696 00 10</span>
                             </p>
                         </div>
                     </div>
@@ -57,21 +57,22 @@
 
         <section class="contact-section section-padding pt-0">
             <div class="container">
-                <div class="row">
+                <div class="row mb-5">
 
                     <div class="col-lg-8 col-12 mx-auto">
                         <div class="section-title-wrap mb-5">
-                            <h4 class="section-title">You know, Contact Form</h4>
+                            <h4 class="section-title">Bizga xabar qoldiring</h4>
                         </div>
 
-                        <form action="#" method="post" class="custom-form contact-form" role="form">
+                        <form method="post" class="custom-form contact-form" role="form">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="full-name" id="full-name" class="form-control"
-                                            placeholder="Full Name" required="">
+                                        <input type="text" name="name" id="full-name" class="form-control"
+                                            placeholder="F.I.O" required="">
 
-                                        <label for="floatingInput">Full Name</label>
+                                        <label for="floatingInput">F.I.O</label>
                                     </div>
                                 </div>
 
@@ -80,28 +81,28 @@
                                         <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*"
                                             class="form-control" placeholder="Email address" required="">
 
-                                        <label for="floatingInput">Email address</label>
+                                        <label for="floatingInput">Email</label>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-12 col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="company" id="name" class="form-control"
+                                        <input type="text" name="subject" id="name" class="form-control"
                                             placeholder="Name" required="">
 
-                                        <label for="floatingInput">Company</label>
+                                        <label for="floatingInput">Mavzu</label>
                                     </div>
 
                                     <div class="form-floating">
                                         <textarea class="form-control" id="message" name="message"
                                             placeholder="Describe message here"></textarea>
 
-                                        <label for="floatingTextarea">Describe message here</label>
+                                        <label for="floatingTextarea">Xabaringizni yozib qoldiring!</label>
                                     </div>
                                 </div>
 
                                 <div class="col-lg-4 col-12 ms-auto">
-                                    <button type="submit" class="form-control">Submit</button>
+                                    <button type="submit" class="form-control">Yuborish</button>
                                 </div>
 
                             </div>
