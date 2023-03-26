@@ -101,8 +101,6 @@ celerybeat.pid
 # Rope project settings
 .ropeproject
 
-
-
 # mypy
 .mypy_cache/
 .dmypy.json
