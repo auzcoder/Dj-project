@@ -1,5 +1,6 @@
 from django.urls import path
-from accounts.views import user_login, AdminHomePageView, change_password, logout, admin_news_list, AdminNewsUpdateView, AdminPostDetailView
+from accounts.views import user_login, AdminHomePageView, change_password, logout, \
+    admin_news_list, AdminNewsUpdateView, AdminPostDetailView
 from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
 urlpatterns = [
