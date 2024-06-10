@@ -30,6 +30,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request, obj=None):
+        return False
     list_display = ["id", 'name', 'email', 'subject']
     list_display_links = ['id', 'name', 'email']
     list_filter = ['subject', 'name', 'email']

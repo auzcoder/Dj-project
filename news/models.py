@@ -100,12 +100,15 @@ class New (models.Model):
         return self.name
 
 
-#Contact bo'limi uchun model
+# Contact bo'limi uchun model
 class Contact(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=100)
     subject = models.CharField(max_length=50)
     message = models.TextField(max_length=1500)
+
+    class Meta:
+        verbose_name_plural = 'Xabarlar'
 
     def __str__(self):
         return self.email
