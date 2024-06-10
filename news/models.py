@@ -69,11 +69,12 @@ class New (models.Model):
     date = models.DateTimeField(default=timezone.now)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    status = models.CharField(max_length=2,
-                              choices=Status.choices,
-                              default=Status.Draft
-                               )
-    object = models.Manager() #Default manager
+    status = models.CharField(
+        max_length=2,
+        choices=Status.choices,
+        default=Status.Draft
+    )
+    object = models.Manager()  # Default manager
     published = PublishedManager()
 
     class Meta:
