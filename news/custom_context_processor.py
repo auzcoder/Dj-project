@@ -1,5 +1,6 @@
 from .models import New, Category, SubCategory
 
+
 def news_list(request):
     news_list = New.published.all().order_by('-date')
     news_list_home = New.published.all().order_by('-date')

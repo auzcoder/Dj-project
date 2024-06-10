@@ -10,10 +10,11 @@ from hitcount.models import HitCount
 
 # Create your models here.
 
-#Publish manager uchun model
+# Publish manager uchun model
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=New.Status.Published)
+
 
 # Kategoriya yaratish qismi uchun model
 class Category(models.Model):
@@ -44,6 +45,7 @@ class SubCategory(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Yangiliklar uchun postlar qismi bo'yicha model
 class New (models.Model):
@@ -79,6 +81,7 @@ class New (models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[str(self.slug)])
+
     def get_absolute_url_admin(self):
         return reverse('admin_news_detail', args=[str(self.slug)])
 
