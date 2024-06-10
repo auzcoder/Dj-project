@@ -21,6 +21,9 @@ class Category(models.Model):
     name = models.CharField(max_length=50)
     view_home = models.BooleanField(default=True)
 
+    class Meta:
+        verbose_name_plural = 'Menyu'
+
     def __str__(self):
         return self.name
 
@@ -42,6 +45,9 @@ class Category(models.Model):
 class SubCategory(models.Model):
     name = models.CharField(max_length=50)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False, blank=False)
+
+    class Meta:
+        verbose_name_plural = 'Kichik menyu'
 
     def __str__(self):
         return self.name
@@ -78,6 +84,7 @@ class New (models.Model):
     published = PublishedManager()
 
     class Meta:
+        verbose_name_plural = 'Postlar'
         ordering = ['-date']
 
     def get_absolute_url(self):
