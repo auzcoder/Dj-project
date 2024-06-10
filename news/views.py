@@ -28,13 +28,14 @@ def HomePageView(request):
 # Contact page uchun views
 class ContactPageView(TemplateView):
     template_name = 'contact.html'
+
     def get(self, request, *args, **kwargs):
         form = ContactForm()
         context = {
             'form': form
         }
-
         return render(request, 'contact.html', context)
+
     def post(self, request, *args, **kwargs):
         form = ContactForm(request.POST)
         if request.method == 'POST' and form.is_valid():
