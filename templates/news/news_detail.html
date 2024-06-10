@@ -26,8 +26,21 @@
 
             <div class="col-lg-10 col-12">
                 <div class="section-title-wrap mb-5">
-                    <h6 class="section-title"><small class="ms-auto"><i class="bi-eye-fill custom-icon"></i> Ko'rislar soni:
-                                    <span class="">{% get_hit_count for news %}</span></small></h6>
+                    <h6 class="section-title">
+                        <small class="ms-auto">
+{#                            {% for a in news.category.all %}#}
+{#                                {{ a.name }} #}
+{#                            {% endfor %}#}
+                            {% if news.category.all.count == 1 %}
+                                {{ news.category.all.first.name }}
+                            {% else %}
+                                {% for a in news.category.all %}
+{#                                    <span class="bradge">{{ a.name }}</span>#}
+                                    {{ a.name }}{% if not forloop.last %} | {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </small>
+                    </h6>
                 </div>
 
                 <div class="row">
