@@ -23,87 +23,86 @@
         <div class="container">
             <div class="row">
 
-
                 {% for news in page_obj %}
-                <div class="col-lg-4 col-12 mb-4 mb-lg-0 mt-3">
-                    <div class="custom-block custom-block-full">
-                        <div class="custom-block-image-wrap">
-                            <a href="{{ news.get_absolute_url }}">
-                                <img src="{{ news.header_images.url }}" class="custom-block-image img-fluid"
-                                    alt="Yangiliklar rasmi">
-                            </a>
-                        </div>
-
-                        <div class="custom-block-info">
-                            <h5 class="mb-2 my-2 font-size-news">
+                    <div class="col-lg-4 col-12 mb-4 mb-lg-0 mt-3">
+                        <div class="custom-block custom-block-full">
+                            <div class="custom-block-image-wrap">
                                 <a href="{{ news.get_absolute_url }}">
-                                    {{ news.name | truncatechars:70 }}
+                                    <img src="{{ news.header_images.url }}" class="custom-block-image img-fluid"
+                                        alt="Yangiliklar rasmi">
                                 </a>
-                            </h5>
-
-
-
-                            <div class="custom-block-bottom d-flex justify-content-between mt-3">
-                                <i class="bi-alarm me-1 icon-icon">
-                                    <span>{{ news.date | date:"H:i" }}</span>
-                                </i>
-
-                                <i class="bi-calendar-event me-1 icon-icon">
-                                    <span>{{ news.date | date:'d.m.Y' }}</span>
-                                </i>
-
-                                <i class="bi-eye-fill me-1 icon-icon">
-                                    <span>{% get_hit_count for news %}</span>
-                                </i>
                             </div>
+    
+                            <div class="custom-block-info">
+                                <h5 class="mb-2 my-2 font-size-news">
+                                    <a href="{{ news.get_absolute_url }}">
+                                        {{ news.name | truncatechars:70 }}
+                                    </a>
+                                </h5>
+    
+    
+    
+                                <div class="custom-block-bottom d-flex justify-content-between mt-3">
+                                    <i class="bi-alarm me-1 icon-icon">
+                                        <span>{{ news.date | date:"H:i" }}</span>
+                                    </i>
+    
+                                    <i class="bi-calendar-event me-1 icon-icon">
+                                        <span>{{ news.date | date:'d.m.Y' }}</span>
+                                    </i>
+    
+                                    <i class="bi-eye-fill me-1 icon-icon">
+                                        <span>{% get_hit_count for news %}</span>
+                                    </i>
+                                </div>
+                            </div>
+    
                         </div>
-
                     </div>
-                </div>
                 {% endfor %}
 
             </div>
         </div>
     </section>
     <div class="col-lg-4 col-12 mx-auto mb-3">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination pagination-lg justify-content-center mt-5">
-                            {% if is_paginated %}
-                                {% if page_obj.has_previous %}
-                                    <li class="page-item">
-                                        <a class="page-link" href="?page=1&filter={{ request.GET.filter }}" aria-label="First">
-                                            <span aria-hidden="true">&laquo;&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}&filter={{ request.GET.filter }}" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                                {% for num in page_obj.paginator.page_range %}
-                                    {% if page_obj.number == num %}
-                                        <li class="page-item active"><a class="page-link" href="">{{ num }}</a></li>
-                                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                                        <li class="page-item"><a class="page-link" href="?page={{ num }}&filter={{ request.GET.filter }}">{{ num }}</a></li>
-                                    {% endif %}
-                                {% endfor %}
-                                {% if page_obj.has_next %}
-                                    <li class="page-item">
-                                        <a class="page-link" href="?page={{ page_obj.next_page_number }}&filter={{ request.GET.filter }}" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&filter={{ request.GET.filter }}" aria-label="Last">
-                                            <span aria-hidden="true">&raquo;&raquo;</span>
-                                        </a>
-                                    </li>
-                                {% endif %}
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-lg justify-content-center mt-5">
+                {% if is_paginated and page_obj %}
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1&filter={{ request.GET.filter }}" aria-label="First">
+                                <span aria-hidden="true">&laquo;&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}&filter={{ request.GET.filter }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                            <li class="page-item active"><a class="page-link" href="">{{ num }}</a></li>
+                        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <li class="page-item"><a class="page-link" href="?page={{ num }}&filter={{ request.GET.filter }}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}&filter={{ request.GET.filter }}" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&filter={{ request.GET.filter }}" aria-label="Last">
+                                <span aria-hidden="true">&raquo;&raquo;</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
 
 
 {% endblock content %}
